@@ -13,6 +13,8 @@ import { HomepageComponent } from './components/pages/homepage/homepage.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { EmptyPageComponent } from './components/pages/empty-page/empty-page.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { EmptyPageComponent } from './components/pages/empty-page/empty-page.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
