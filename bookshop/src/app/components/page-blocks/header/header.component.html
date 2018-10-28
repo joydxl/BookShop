@@ -1,24 +1,27 @@
 <div class="container-fluid">
-  <div class="row" style="border:1px solid black; height:100px">
-    <div class="col-3" style="border:1px solid #000000">
+  <div class="row" style="border:1px solid black; height:125px">
+    <div class="col-3">
       <a routerLink=''><img src="//x-studio.com.ua/images/logo.gif" alt="Logo Image" height="100%"></a>
     </div>
-    <div class="col-9" style="border:1px solid black; height:100px">
+    <div class="col-9">
       <div class="container-fluid">
-        <div class="row" style="height:50px">
-          <div class="col-11">            
-            <h1>Some interesting text about BookShop</h1>
+        <div class="row justify-content-end align-items-center" style="height:75px;">
+          <div class="col">            
+            <h1>Some BookShop text</h1>
           </div>
-          <div class="col-1">            
-            <a routerLink='login'>Log In</a>
+          <div class="col-auto">            
+            <app-search></app-search>
+          </div>
+          <div class="col-auto">            
+            <a routerLink='login'><button type="button" class="btn btn-primary">Log In</button></a>
           </div>  
         </div>
-        <div class="row" style="border:1px solid black; height:50px">            
-              <a class="nav-link" routerLink='#'>Some Item</a>
-              <a class="nav-link" routerLink='#'>Some Item</a>
-              <a class="nav-link" routerLink='#'>Some Item</a>
-              <a class="nav-link" routerLink='#'>Some Item</a>
-              <a class="nav-link" routerLink='#'>Some Item</a>            
+        <div class="row">            
+              <a class="nav-link" routerLink='#'>New Books</a>
+              <a class="nav-link" routerLink='#'>Used Books</a>
+              <a class="nav-link" routerLink='#'>eBooks</a>
+              <a class="nav-link" routerLink='#'>Audio Books</a>
+              <a class="nav-link" routerLink='#'>Some more type</a>            
         </div>    
       </div>
     </div>
