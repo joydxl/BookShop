@@ -15,6 +15,7 @@ import { EmptyPageComponent } from './components/pages/empty-page/empty-page.com
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './components/page-blocks/search/search.component';
+import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SearchComponent } from './components/page-blocks/search/search.componen
     HomepageComponent,
     LoginComponent,
     EmptyPageComponent,
-    SearchComponent
+    SearchComponent,
+    SingUpComponent
   ],
   imports: [
     BrowserModule,

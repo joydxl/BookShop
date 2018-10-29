@@ -24,6 +24,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/themes/good-news/css/bootstrap4-good-news.min.css",
+              "node_modules/bootstrap/fonts/open-iconic-master/font/css/open-iconic-bootstrap.css",
               "src/styles.css"
             ],
             "scripts": []

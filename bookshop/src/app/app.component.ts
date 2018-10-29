@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookshop';
+  public footerHeight = '100px';
+  public headerHeight = '125px';
+
 }

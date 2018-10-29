@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
@@ -10,6 +10,8 @@ export class HomepageComponent implements OnInit {
 
   constructor() { }
 
+  @Input() innerHeight: number;
+  public _innerHeight: string;
   ngOnInit() {
   }
 

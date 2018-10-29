@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div class="row justify-content-center" [ngStyle]="{'paddingTop': '50px'}">
+  <div class="col-4">
+    <form action="void();">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row justify-content-between" [ngStyle]="{'paddingBottom': '50px'}">
+    <div class="col-3"></div>
+    <div class="col-auto">
+      <p>New to BookShop?  <a routerLink="/sing-up">Sing Up Here</a></p>
+    </div>
+    <div class="col-auto">            
+      <a class="btn btn-primary">Log In</a>
+    </div>
+    <div class="col-3"></div>
+</div>

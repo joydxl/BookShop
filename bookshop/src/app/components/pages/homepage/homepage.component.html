@@ -1,9 +1,12 @@
-<aside>
-  <app-filter-bar></app-filter-bar>
-</aside>
-<section>
-  <p>
-  homepage works!
-</p>
-</section>
-
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-2 border border-dark sidenav"  [ngStyle]="{'height': '500px'}">
+      <app-filter-bar></app-filter-bar>
+    </aside>
+    <section class="col-10">
+      <p>
+        HomePage
+      </p>
+    </section>
+  </div>
+</div>
