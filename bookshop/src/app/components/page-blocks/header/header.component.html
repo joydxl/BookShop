@@ -10,7 +10,7 @@
             <h1>Some BookShop text</h1>
           </div>
           <div class="col-auto">            
-            <app-search></app-search>
+            <app-search class="input-group"></app-search>
           </div>
           <div class="col-auto">            
             <a routerLink='login' class="btn btn-primary">Log In</a>
@@ -24,8 +24,8 @@
             <a class="nav-link" routerLink='#'>Audio Books</a>
           </div>          
           <div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic example">           
-              <a class="nav-link" routerLink='#'><span class="oi oi-heart" [ngStyle]="{'fontSize': '20px'}"></span></a>
-              <a class="nav-link" routerLink='#'><span class="oi oi-cart" [ngStyle]="{'fontSize': '20px'}"></span></a>
+              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><span class="oi oi-heart"></span></a>
+              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><span class="oi oi-cart"></span></a>
           </div>        
         </div>    
       </div>

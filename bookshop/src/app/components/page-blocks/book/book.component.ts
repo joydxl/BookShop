@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class BookComponent implements OnInit {
 
   constructor() { }
+  private bookTitle = 'Book Title';
+  private bookAuthor = 'Book Author';
 
   ngOnInit() {
   }

@@ -13,9 +13,11 @@ import { HomepageComponent } from './components/pages/homepage/homepage.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { EmptyPageComponent } from './components/pages/empty-page/empty-page.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { SearchComponent } from './components/page-blocks/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
+import { GoBackComponent } from './components/page-blocks/go-back/go-back.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
     LoginComponent,
     EmptyPageComponent,
     SearchComponent,
-    SingUpComponent
+    SingUpComponent,
+    GoBackComponent
   ],
   imports: [
     BrowserModule,

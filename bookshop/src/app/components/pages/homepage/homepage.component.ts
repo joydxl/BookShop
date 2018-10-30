@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BookComponent } from '../../page-blocks/book/book.component';
 
 
 @Component({
@@ -8,10 +9,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  private books: any;
 
-  @Input() innerHeight: number;
-  public _innerHeight: string;
+  getBooks() {
+    // get filtered array of books and return it
+    this.books = [
+      BookComponent,
+      BookComponent,
+      BookComponent,
+      BookComponent,
+      BookComponent,
+      BookComponent,
+      BookComponent,
+    ]
+  }
+
+
+  constructor() {}
+
   ngOnInit() {
   }
 

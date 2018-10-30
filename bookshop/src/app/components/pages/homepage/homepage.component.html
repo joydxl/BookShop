@@ -1,12 +1,40 @@
 <div class="container-fluid">
   <div class="row">
-    <aside class="col-2 border border-dark sidenav"  [ngStyle]="{'height': '500px'}">
+    <aside class="col-2 border border-dark sidenav">
       <app-filter-bar></app-filter-bar>
     </aside>
-    <section class="col-10">
-      <p>
-        HomePage
-      </p>
+    <section class="col-10 container-fluid">
+      <div class="row">
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+        <app-book class="col-3"></app-book>
+      </div>
+      <div class="row">
+          <nav aria-label="Page navigation example">
+              <ul class="pagination" [ngStyle]="{'padding': '0 30px'}">
+                <li class="page-item">
+                  <a class="page-link" href="#!" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#!">1</a></li>
+                <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#!" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+      </div>
     </section>
   </div>
 </div>
