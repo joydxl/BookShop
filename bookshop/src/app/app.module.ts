@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/page-blocks/header/header.component';
-import { FilterBarComponent } from './components/page-blocks/filter-bar/filter-bar.component';
-import { FooterComponent } from './components/page-blocks/footer/footer.component';
-import { CategoryComponent } from './components/page-blocks/category/category.component';
-import { BookComponent } from './components/page-blocks/book/book.component';
+import { HeaderComponent } from './components/layouts/header/header.component';
+import { FilterBarComponent } from './components/layouts/filter-bar/filter-bar.component';
+import { FooterComponent } from './components/layouts/footer/footer.component';
+import { CategoryComponent } from './components/layouts/category/category.component';
+import { BookComponent } from './components/layouts/book/book.component';
 import { HomepageComponent } from './components/pages/homepage/homepage.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { EmptyPageComponent } from './components/pages/empty-page/empty-page.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { SearchComponent } from './components/page-blocks/search/search.component';
+import { SearchComponent } from './components/layouts/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
-import { GoBackComponent } from './components/page-blocks/go-back/go-back.component';
+import { GoBackComponent } from './components/layouts/go-back/go-back.component';
 
 
 @NgModule({

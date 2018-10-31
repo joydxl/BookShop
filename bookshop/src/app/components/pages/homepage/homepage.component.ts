@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookComponent } from '../../page-blocks/book/book.component';
+import { BookComponent } from '../../layouts/book/book.component';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
       BookComponent,
       BookComponent,
       BookComponent,
-    ]
+    ];
   }
 
 
