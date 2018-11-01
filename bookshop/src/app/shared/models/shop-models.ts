@@ -50,13 +50,15 @@ export class Review {
 export class OrderItem {
     public BookId: Book['Id'];
     public BookPrice: Book['Price'];
-    public Quantitu: number;
+    public Quantity: number;
 }
 
 export class Book {
     public Id: number;
     public Title: string;
-    public Authors: Array<Author['Id']>;
+    public Authors: Array<Author['FullName']>;
+    public AboutAuthors: Array<Author['About']>;
+    public URL: string;
     public Price: number;
     public Shipping: number;
     public Quantity: number;
@@ -65,13 +67,15 @@ export class Book {
     public get Rating() {
         const object = this.Reviews;
         let rating = 0;
+        let counter = 0;
 
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
                 rating = rating + object[key]['Rating'];
+                counter++;
             }
         }
-        return rating;
+        return rating / counter;
     }
     public BarCode: string;
     public Type: TypeOfBook;
@@ -86,6 +90,7 @@ export class Author {
     public get FullName() {
         return this.FirstName + ' ' + this.LastName;
     }
+    public About: string;
     public Books: Array<Book['Id']>;
 }
 
@@ -99,7 +104,7 @@ export class Order {
 
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
-                price = price + (object[key]['BookPrice'] * object[key]['Quantitu']);
+                price = price + (object[key]['BookPrice'] * object[key]['Quantity']);
             }
         }
         return price;

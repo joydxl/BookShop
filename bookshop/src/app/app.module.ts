@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './components/layouts/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
 import { GoBackComponent } from './components/layouts/go-back/go-back.component';
+import { BookpageComponent } from './components/pages/bookpage/bookpage.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { GoBackComponent } from './components/layouts/go-back/go-back.component'
     EmptyPageComponent,
     SearchComponent,
     SingUpComponent,
-    GoBackComponent
+    GoBackComponent,
+    BookpageComponent
   ],
   imports: [
     BrowserModule,

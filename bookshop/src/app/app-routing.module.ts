@@ -4,13 +4,15 @@ import { HomepageComponent } from './components/pages/homepage/homepage.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { EmptyPageComponent } from './components/pages/empty-page/empty-page.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
+import { BookpageComponent } from './components/pages/bookpage/bookpage.component';
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
   {path: '#', component: EmptyPageComponent},
-  {path: 'sing-up', component: SingUpComponent}
+  {path: 'sing-up', component: SingUpComponent},
+  {path: 'bookpage', component: BookpageComponent}
 ];
 
 @NgModule({
