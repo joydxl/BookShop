@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/themes/good-news/css/bootstrap4-good-news.min.css",
-              "node_modules/bootstrap/fonts/open-iconic-master/font/css/open-iconic-bootstrap.css",
+              "node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.css"
             ],
             "scripts": []

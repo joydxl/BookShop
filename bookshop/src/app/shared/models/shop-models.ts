@@ -54,7 +54,13 @@ export class OrderItem {
 }
 
 export class Book {
-    public Id: number;
+  /**
+   *
+   */
+  constructor() {
+
+  }
+    public Id: number = 11;
     public Title: string;
     public Authors: Array<Author['FullName']>;
     public AboutAuthors: Array<Author['About']>;
@@ -63,9 +69,12 @@ export class Book {
     public Shipping: number;
     public Quantity: number;
     public Annotation: string;
-    public Reviews: Array<Review>; // {'userId':User.Id, 'review':review}
-    public get Rating() {
+    public Reviews: Array<Review> = []; // {'userId':User.Id, 'review':review}
+    public get Rating(): number {
         const object = this.Reviews;
+        if (this.Reviews.length > 0) {
+          return 0;
+        }
         let rating = 0;
         let counter = 0;
 
@@ -81,6 +90,7 @@ export class Book {
     public Type: TypeOfBook;
     public Category: Array<string>;
     public Genre: Array<string>;
+
 }
 
 export class Author {
