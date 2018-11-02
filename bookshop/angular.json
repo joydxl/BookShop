@@ -23,8 +23,13 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/ionicons/dist/css/ionicons.min.css",
+=======
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+>>>>>>> 1589fd2e36ba4c9b77f215b5a26ffba2ae17d356
               "src/styles.css"
             ],
             "scripts": []

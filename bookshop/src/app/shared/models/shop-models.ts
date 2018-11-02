@@ -1,31 +1,31 @@
 
 export class Manager {
-    public Id: number;
-    public UserName: string;
-    public Password: string;
-    public FirstName: string;
-    public LastName: string;
+    public Id: number = null;
+    public UserName: string = null;
+    public Password: string = null;
+    public FirstName: string = null;
+    public LastName: string = null;
     get FullName() {
         return this.FirstName + ' ' + this.LastName;
     }
-    public Books: Array<Book['Id']>;
-    public Authors: Array<Author['Id']>;
+    public Books: Array<Book['Id']> = [];
+    public Authors: Array<Author['Id']> = [];
 }
 
 export class User {
-    public Id: number;
-    public UserName: string;
-    public Password: string;
-    public FirstName: string;
-    public LastName: string;
-    get FullName() {
+    public Id: number = null;
+    public UserName: string = null;
+    public Password: string = null;
+    public FirstName: string = null;
+    public LastName: string = null;
+    get FullName(): string {
         return this.FirstName + ' ' + this.LastName;
     }
-    public Address: Array<string>;
-    public Card: Array<any>;
-    public LikedBooks: Array<Book['Id']>;
-    public Basket: Array<BasketBook>;
-    public Orders: Array<Order['Id']>;
+    public Address: Array<string> = [];
+    public Card: Array<any> = [];
+    public LikedBooks: Array<Book['Id']> = [];
+    public Basket: Array<BasketBook> = [];
+    public Orders: Array<Order['Id']> = [];
 }
 
 export enum TypeOfBook {
@@ -36,24 +36,32 @@ export enum TypeOfBook {
 }
 
 export class BasketBook {
-    public BookId: Book['Id'];
-    public Quantity: number;
+    public BookId: Book['Id'] = null;
+    public Quantity: number = null;
 }
 
 export class Review {
-    public Id: number;
-    public UserId: User['Id'];
-    public Text: string;
-    public Rating: number;
+    public Id: number = null;
+    public UserId: User['Id'] = null;
+    public Text: string = null;
+    public Rating: number = null;
 }
 
 export class OrderItem {
-    public BookId: Book['Id'];
-    public BookPrice: Book['Price'];
-    public Quantity: number;
+    public BookId: Book['Id'] = null;
+    public BookPrice: Book['Price'] = null;
+    public Quantity: number = null;
+}
+
+export class FilteredBooks {
+    public Id: Book['Id'] = null;
+    public Title: Book['Title'] = 'Book Title';
+    public Authors: Book['Authors'] = ['Author'];
+    public URL: string = '//x-studio.com.ua/images/book.jpg';
 }
 
 export class Book {
+<<<<<<< HEAD
   
     public Id: number = null;
     public Title: string = 'Book Title';
@@ -64,10 +72,24 @@ export class Book {
     public Shipping: number;
     public Quantity: number;
     public Annotation: string;
+=======
+
+    public Id: number = null;
+    public Title: string = 'Book Title';
+    public Authors: Array<Author['FullName']> = ['Author'];
+    public AboutAuthors: Array<Author['About']> = [];
+    public URL: string = '//x-studio.com.ua/images/book.jpg';
+    public Price: number = null;
+    public Shipping: number = null;
+    public Quantity: number = null;
+    public Annotation: string = null;
+>>>>>>> 1589fd2e36ba4c9b77f215b5a26ffba2ae17d356
     public Reviews: Array<Review> = []; // {'userId':User.Id, 'review':review}
     public get Rating(): number {
+
         const object = this.Reviews;
-        if (this.Reviews.length > 0) {
+
+        if (this.Reviews.length === 0) {
           return 0;
         }
         let rating = 0;
@@ -81,17 +103,23 @@ export class Book {
         }
         return rating / counter;
     }
-    public BarCode: string;
-    public Type: TypeOfBook;
-    public Category: Array<string>;
-    public Genre: Array<string>;
+    public BarCode: string = null;
+    public Type: TypeOfBook = null;
+    public Category: Array<string> = [];
+    public Genre: Array<string> = [];
 
 }
 
 export class Author {
+<<<<<<< HEAD
     public Id: number;
     public FirstName: string = 'FirstName';
     public LastName: string = 'LastName';
+=======
+    public Id: number = null;
+    public FirstName: string = null;
+    public LastName: string = null;
+>>>>>>> 1589fd2e36ba4c9b77f215b5a26ffba2ae17d356
     public get FullName() {
         return this.FirstName + ' ' + this.LastName;
     }
@@ -100,9 +128,9 @@ export class Author {
 }
 
 export class Order {
-    public Id: number;
+    public Id: number = null;
     public Items: Array<OrderItem>;
-    public Shipping: number;
+    public Shipping: number = null;
     public get Price() {
         const object = this.Items;
         let price = 0;
@@ -114,6 +142,6 @@ export class Order {
         }
         return price;
     }
-    public Paid: boolean;
-    public Shipped: boolean;
+    public Paid: boolean = null;
+    public Shipped: boolean = null;
 }
