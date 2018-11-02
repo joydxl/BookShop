@@ -17,6 +17,9 @@ export class BookpageComponent implements OnInit {
 
   getBook() {
 
+    this.book.Price = 10;
+    this.book.Title = 'Some interesting book';
+
     this.book.Reviews = [{'Id': 1, 'UserId': 1, 'Text': 'Text of Review # 1 goes here. TypeOf string.', 'Rating': 5},
                         {'Id': 2, 'UserId': 2, 'Text': 'Text of Review # 2 goes here. TypeOf string.', 'Rating': 2}];
 
