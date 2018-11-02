@@ -12,14 +12,13 @@ export class BookpageComponent implements OnInit {
 
   private book = new Book;
 
-  private Revie1 = new Review;
-  private Revie2 = new Review;
 
   constructor() { }
 
   getBook() {
 
-    console.log('this.book.Id', this.book.Id);
+    this.book.Reviews = [{'Id': 1, 'UserId': 1, 'Text': 'Text of Review # 1 goes here. TypeOf string.', 'Rating': 5},
+                        {'Id': 2, 'UserId': 2, 'Text': 'Text of Review # 2 goes here. TypeOf string.', 'Rating': 2}];
 
 
 

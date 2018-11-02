@@ -14,6 +14,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { EmptyPageComponent } from './components/pages/empty-page/empty-page.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { SearchComponent } from './components/layouts/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
@@ -41,7 +42,8 @@ import { BookpageComponent } from './components/pages/bookpage/bookpage.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
