@@ -54,17 +54,12 @@ export class OrderItem {
 }
 
 export class Book {
-  /**
-   *
-   */
-  constructor() {
-
-  }
-    public Id: number = 11;
-    public Title: string;
-    public Authors: Array<Author['FullName']>;
+  
+    public Id: number = null;
+    public Title: string = 'Book Title';
+    public Authors: Array<Author['FullName']> = [];
     public AboutAuthors: Array<Author['About']>;
-    public URL: string;
+    public URL: string = '//x-studio.com.ua/images/book.jpg';
     public Price: number;
     public Shipping: number;
     public Quantity: number;
@@ -95,8 +90,8 @@ export class Book {
 
 export class Author {
     public Id: number;
-    public FirstName: string;
-    public LastName: string;
+    public FirstName: string = 'FirstName';
+    public LastName: string = 'LastName';
     public get FullName() {
         return this.FirstName + ' ' + this.LastName;
     }

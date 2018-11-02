@@ -11,6 +11,7 @@ import { tick } from '@angular/core/src/render3';
 export class BookpageComponent implements OnInit {
 
   private book = new Book;
+  private author = new Author;
 
   private Revie1 = new Review;
   private Revie2 = new Review;
@@ -20,6 +21,9 @@ export class BookpageComponent implements OnInit {
   getBook() {
 
     console.log('this.book.Id', this.book.Id);
+
+    this.book.Id = 13;
+    this.book.Authors = ['Screw Driver', 'Unscrew Driver2'];
 
 
 
