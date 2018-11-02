@@ -61,6 +61,18 @@ export class FilteredBooks {
 }
 
 export class Book {
+<<<<<<< HEAD
+  
+    public Id: number = null;
+    public Title: string = 'Book Title';
+    public Authors: Array<Author['FullName']> = [];
+    public AboutAuthors: Array<Author['About']>;
+    public URL: string = '//x-studio.com.ua/images/book.jpg';
+    public Price: number;
+    public Shipping: number;
+    public Quantity: number;
+    public Annotation: string;
+=======
 
     public Id: number = null;
     public Title: string = 'Book Title';
@@ -71,6 +83,7 @@ export class Book {
     public Shipping: number = null;
     public Quantity: number = null;
     public Annotation: string = null;
+>>>>>>> 1589fd2e36ba4c9b77f215b5a26ffba2ae17d356
     public Reviews: Array<Review> = []; // {'userId':User.Id, 'review':review}
     public get Rating(): number {
 
@@ -98,9 +111,15 @@ export class Book {
 }
 
 export class Author {
+<<<<<<< HEAD
+    public Id: number;
+    public FirstName: string = 'FirstName';
+    public LastName: string = 'LastName';
+=======
     public Id: number = null;
     public FirstName: string = null;
     public LastName: string = null;
+>>>>>>> 1589fd2e36ba4c9b77f215b5a26ffba2ae17d356
     public get FullName() {
         return this.FirstName + ' ' + this.LastName;
     }
