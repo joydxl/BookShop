@@ -57,7 +57,7 @@ export class FilteredBooks {
     public Id: Book['Id'] = null;
     public Title: Book['Title'] = 'Book Title';
     public Authors: Book['Authors'] = ['Author'];
-    public URL: string = '//x-studio.com.ua/images/book.jpg';
+    public URL: Book['URL'] = '//x-studio.com.ua/images/book.jpg';
 }
 
 export class Book {
