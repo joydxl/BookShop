@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Book, Author, Review } from '../../../shared/models/shop-models';
-import { tick } from '@angular/core/src/render3';
-// import { Review } from '../../../shared/models/shop-models';
+import { Book } from '../../../shared/models/shop-models';
+import { ActivatedRoute } from '@angular/router';
+import { GetDataService } from 'src/app/shared/services/get-data.service';
 
 @Component({
   selector: 'app-bookpage',
@@ -11,21 +11,23 @@ import { tick } from '@angular/core/src/render3';
 export class BookpageComponent implements OnInit {
 
   private book = new Book;
-  private author = new Author;
+  private id: number;
+
+  constructor(private activateRoute: ActivatedRoute, private dataService: GetDataService) {
+    this.id = activateRoute.snapshot.params['id'];
+  }
+
+  getBook(id) {
 
 
-  constructor() { }
-
-  getBook() {
-
-    this.book.Price = 10;
+    /* this.book.Price = 10;
     this.book.Title = 'Some interesting book';
 
     this.book.Reviews = [{'Id': 1, 'UserId': 1, 'Text': 'Text of Review # 1 goes here. TypeOf string.', 'Rating': 5},
                         {'Id': 2, 'UserId': 2, 'Text': 'Text of Review # 2 goes here. TypeOf string.', 'Rating': 2}];
 
-    this.book.Id = 13;
-    this.book.Authors = ['Screw Driver', 'Unscrew Driver2'];
+    this.book.Id = this.id;
+    this.book.Authors = ['Screw Driver', 'Unscrew Driver2']; */
 
 
 
@@ -62,9 +64,7 @@ export class BookpageComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.getBook();
-
+    this.book = this.dataService.getBookData(this.id);
   }
 
 }

@@ -20,6 +20,7 @@ import { SearchComponent } from './components/layouts/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
 import { GoBackComponent } from './components/layouts/go-back/go-back.component';
 import { BookpageComponent } from './components/pages/bookpage/bookpage.component';
+import { GetDataService } from './shared/services/get-data.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { BookpageComponent } from './components/pages/bookpage/bookpage.componen
     NgbModule,
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [GetDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '#', component: EmptyPageComponent},
   {path: 'sing-up', component: SingUpComponent},
-  {path: 'bookpage', component: BookpageComponent}
+  {path: 'bookpage/:id', component: BookpageComponent},
+  {path: '**', component: EmptyPageComponent},
 ];
 
 @NgModule({

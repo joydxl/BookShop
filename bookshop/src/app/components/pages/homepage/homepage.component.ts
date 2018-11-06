@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilteredBooks } from 'src/app/shared/models/shop-models';
+import { GetDataService } from 'src/app/shared/services/get-data.service';
 
 /* import { BookComponent } from '../../layouts/book/book.component';
 import { FilteredBooks } from '../../../shared/models/shop-models'; */
@@ -14,7 +15,7 @@ export class HomepageComponent implements OnInit {
 
   public books: Array<FilteredBooks> = [];
 
-  getFilteredBooks() {
+  /* getFilteredBooks() {
     // get filtered array of books and return it
 
 
@@ -24,20 +25,20 @@ export class HomepageComponent implements OnInit {
       {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
       {'Id': 2, 'Authors': ['a2'], 'URL': '//x-studio.com.ua/images/book.jpg'},
       {'Id': 3, 'Title': 't3', 'Authors': ['a3']}
-    ]; */
+    ];
 
     return [
       {'Id': 1, 'Title': 't1', 'Authors': ['a1'], 'URL': '//x-studio.com.ua/images/book.jpg'},
       {'Id': 2, 'Title': 't2', 'Authors': ['a2'], 'URL': '//x-studio.com.ua/images/book.jpg'},
       {'Id': 3, 'Title': 't3', 'Authors': ['a3'], 'URL': '//x-studio.com.ua/images/book.jpg'}
     ];
-  }
+  } */
 
-  constructor() {}
+  constructor(private dataService: GetDataService) {}
 
   ngOnInit() {
 
-    this.books = this.getFilteredBooks();
+    this.books = this.dataService.getFilteredBooks();
 
 
     // Alternative if we may pass not all properties
