@@ -13,7 +13,8 @@
             <app-search class="input-group"></app-search>
           </div>
           <div class="col-auto">            
-            <a routerLink='login' class="btn btn-primary">Log In</a>
+            <a *ngIf="!userService.user.Id; else logout" routerLink='login' class="btn btn-primary">Log In</a>
+            <ng-template #logout><a class="btn btn-primary" (click)="this.userService.LogOut();">Log Out</a></ng-template>
           </div>  
         </div>
         <div class="row justify-content-between"> 
@@ -22,10 +23,12 @@
             <a class="nav-link" routerLink='used-books'>Used Books</a>
             <a class="nav-link" routerLink='ebooks'>eBooks</a>
             <a class="nav-link" routerLink='audio'>Audio Books</a>
+            <a class="nav-link" routerLink='bookpage'>bookpage</a>
+            <a class="nav-link" routerLink='add-book'>add-book</a>
           </div>          
           <div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic example">           
-              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><span class="oi oi-heart"></span></a>
-              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><span class="oi oi-cart"></span></a>
+              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><fa name="heart"></fa></a>
+              <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><fa name="shopping-cart"></fa></a>
           </div>        
         </div>    
       </div>

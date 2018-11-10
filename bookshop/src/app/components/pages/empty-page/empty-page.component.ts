@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { NavigationService } from 'src/app/shared/services/navigation.service';
 
 
 @Component({
@@ -8,12 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./empty-page.component.css']
 })
 export class EmptyPageComponent implements OnInit {
-  public href = '';
-
-  constructor(private router: Router) {}
+  
+  constructor(private navigationService: NavigationService) {}
 
   ngOnInit() {
-    this.href = this.router.url;
-    console.log(this.router.url);
   }
 }

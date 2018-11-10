@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilteredBooks } from 'src/app/shared/models/shop-models';
-import { GetDataService } from 'src/app/shared/services/get-data.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 /* import { BookComponent } from '../../layouts/book/book.component';
 import { FilteredBooks } from '../../../shared/models/shop-models'; */
@@ -34,11 +34,11 @@ export class HomepageComponent implements OnInit {
     ];
   } */
 
-  constructor(private dataService: GetDataService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
 
-    this.books = this.dataService.getFilteredBooks();
+    this.books = this.dataService.getBooks();
 
 
     // Alternative if we may pass not all properties

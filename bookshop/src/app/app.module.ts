@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +17,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { SearchComponent } from './components/layouts/search/search.component';
 import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
-import { GoBackComponent } from './components/layouts/go-back/go-back.component';
 import { BookpageComponent } from './components/pages/bookpage/bookpage.component';
-import { GetDataService } from './shared/services/get-data.service';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { NgIf } from '@angular/common';
+
+
 
 
 @NgModule({
@@ -36,17 +40,17 @@ import { GetDataService } from './shared/services/get-data.service';
     EmptyPageComponent,
     SearchComponent,
     SingUpComponent,
-    GoBackComponent,
     BookpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     NgbModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [GetDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

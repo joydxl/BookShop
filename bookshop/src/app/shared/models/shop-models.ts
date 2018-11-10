@@ -1,5 +1,5 @@
 
-export class Manager {
+/* export class Manager {
     public Id: number = null;
     public UserName: string = null;
     public Password: string = null;
@@ -10,10 +10,11 @@ export class Manager {
     }
     public Books: Array<Book['Id']> = [];
     public Authors: Array<Author['Id']> = [];
-}
+} */
 
 export class User {
     public Id: number = null;
+    public Role: string = null;
     public UserName: string = null;
     public Password: string = null;
     public FirstName: string = null;
@@ -33,6 +34,10 @@ export enum TypeOfBook {
     UsedBook = 2,
     EBook = 3,
     AudioBook = 4
+}
+export enum UserRole {
+    Manager = 1,
+    User = 2
 }
 
 export class BasketBook {

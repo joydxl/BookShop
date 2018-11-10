@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
   @Input() headerHeight: string;
 

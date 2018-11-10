@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../../shared/models/shop-models';
-import { ActivatedRoute } from '@angular/router';
-import { GetDataService } from 'src/app/shared/services/get-data.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-bookpage',
@@ -13,8 +13,21 @@ export class BookpageComponent implements OnInit {
   private book = new Book;
   private id: number;
 
-  constructor(private activateRoute: ActivatedRoute, private dataService: GetDataService) {
-    this.id = activateRoute.snapshot.params['id'];
+  constructor(/* private */ activatedRoute: ActivatedRoute, /* private  */ dataService: DataService, route_: Router) {
+    // this.book = new Book;
+    console.log('activateRoute.snapshot.params ID ', activatedRoute.snapshot.params['id']);
+
+      this.id = activatedRoute.snapshot.params['id'];
+      activatedRoute.params.subscribe(id => {
+        console.log('id', id);
+        if (!dataService.bookExist(this.id)) {
+          route_.navigate(['']);
+        }
+        if (this.id) {
+          this.book = dataService.getBookData(this.id);
+        }
+      });
+
   }
 
   getBook(id) {
@@ -64,7 +77,10 @@ export class BookpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.book = this.dataService.getBookData(this.id);
+    //this.book = this.dataService.getBookData(this.id);
+
+    
+
   }
 
 }

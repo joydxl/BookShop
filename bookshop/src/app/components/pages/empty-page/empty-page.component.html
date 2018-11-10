@@ -1,6 +1,7 @@
 <div  [ngStyle]="{'height': '500px'}">
 <p>
-  This page is under constraction! Check it later! <app-go-back></app-go-back>
+  This page is under constraction! Check it later!
 </p>
-
+<button *ngIf="this.navigationService.previousUrl; else gohome" (click)="this.navigationService.goBack()">Go Back</button>
+<ng-template #gohome><button (click)="this.navigationService.goHome()">Go Home</button></ng-template>
 </div>
