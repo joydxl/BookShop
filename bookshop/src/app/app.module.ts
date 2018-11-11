@@ -25,8 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

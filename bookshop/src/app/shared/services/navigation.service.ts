@@ -43,12 +43,12 @@ export class NavigationService {
     if (!this.previousUrl) {
       this.router.navigateByUrl('');
     } else {
-      const goHome = confirm('Hit "Yes" If you want to go Homepage. But if you want to go previous page, hit "Cancel"');
-      if (goHome) {
+      /* const goHome = confirm('Hit "Yes" If you want to go Homepage. But if you want to go previous page, hit "Cancel"');
+      if (goHome) { */
         this.router.navigateByUrl('');
-      } else {
+      /* } else {
         this.location.back();
-      }
+      } */
     }
   }
 

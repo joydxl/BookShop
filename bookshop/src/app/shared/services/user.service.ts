@@ -18,32 +18,52 @@ export class UserService {
       .post('https://iteahubback.azurewebsites.net/api/Account/LogIn', form)
       .subscribe(x => {
         console.log('result', x);
-        for (const key in x) {
-          if (x.hasOwnProperty(key)) {
-            switch (key) {
-              case 'id':
-                this.user.Id = x[key];
-                break;
-              case 'loginName':
-                this.user.UserName = x[key];
-                break;
-              case 'roles':
-                this.user.Role = x[key];
-                break;
+        if (x) {
+          for (const key in x) {
+            if (x.hasOwnProperty(key)) {
+              switch (key) {
+                case 'id':
+                  this.user.Id = x[key];
+                  break;
+                case 'loginName':
+                  this.user.UserName = x[key];
+                  break;
+                case 'roles':
+                  this.user.Role = x[key];
+                  break;
 
-              default:
-                break;
+                default:
+                  break;
+              }
             }
           }
+          console.log('this.user: ', this.user);
+          if (this.user.Role === 'manager') {
+            this.navigationService.goHome();
+          }
+          this.navigationService.goBack();
+        } else {
+          alert('user do not exist');
         }
-        console.log('this.user: ', this.user);
-        if (this.user.Role === 'manager') {
+      },
+      error => console.error('error bad'));
+  }
 
-        }
+  SingUp(form) {
+    const user = form.loginName;
+    const password = form.password;
+
+    console.log('this.newUserForm.value', form);
+    this._http
+      .post('https://iteahubback.azurewebsites.net/api/Account/AddUser', form)
+      .subscribe(x => {
+        console.log('result', x);
+        this.LogIn({'userName': user, 'password': password});
         this.navigationService.goBack();
       },
       error => console.error('error bad'));
   }
+
   LogOut() {
     if (this.user.Role === 'manager') {
       this.navigationService.goManager('manager');
