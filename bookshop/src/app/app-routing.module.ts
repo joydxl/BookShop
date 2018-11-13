@@ -7,12 +7,13 @@ import { SingUpComponent } from './components/pages/sing-up/sing-up.component';
 import { BookpageComponent } from './components/pages/bookpage/bookpage.component';
 import { RoutingGuard } from './shared/routing.guard';
 import { ManagerRoutingGuard } from './shared/manager-routing.guard';
+import { AddBookComponent } from './components/pages/add-book/add-book.component';
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'login', component: LoginComponent, canActivate: [RoutingGuard]},
-  {path: 'add-book', component: EmptyPageComponent, canActivate: [ManagerRoutingGuard]},
+  {path: 'add-book', component: AddBookComponent, canActivate: [ManagerRoutingGuard]},
   {path: '#', component: EmptyPageComponent},
   {path: 'sing-up', component: SingUpComponent},
   {path: 'bookpage', component: BookpageComponent},

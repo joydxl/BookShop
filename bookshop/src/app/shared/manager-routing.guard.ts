@@ -3,6 +3,10 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs';
 import { UserService } from './services/user.service';
 
+export interface ComponentCanDeactivate {
+  canDeactivate: () => boolean | Observable<boolean>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,5 +17,9 @@ export class ManagerRoutingGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       return this.userService.isManager();
+  }
+  canDeactivate(component: ComponentCanDeactivate): Observable<boolean> | boolean {
+
+    return confirm('Вы уверены, что хотите перейти?');
   }
 }

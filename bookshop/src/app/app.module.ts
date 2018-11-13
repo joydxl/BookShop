@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgIf } from '@angular/common';
+import { AddBookComponent } from './components/pages/add-book/add-book.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NgIf } from '@angular/common';
     EmptyPageComponent,
     SearchComponent,
     SingUpComponent,
-    BookpageComponent
+    BookpageComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

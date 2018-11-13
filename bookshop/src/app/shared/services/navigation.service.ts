@@ -31,12 +31,8 @@ export class NavigationService {
       this.router.navigateByUrl('');
     }
   }
-  goManager(role) {
-    if (role === 'manager') {
-      this.router.navigateByUrl('');
-    } else {
-      return false;
-    }
+  goManager() {
+      this.router.navigateByUrl('add-book');
   }
 
   goHome() {

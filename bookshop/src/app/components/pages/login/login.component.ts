@@ -22,22 +22,11 @@ export class LoginComponent implements OnInit {
 
   constructor(/*private _http: HttpClient,*/ private userService: UserService, private navigationService: NavigationService ) { }
 
-  /* let userLogged = this.userService.user.id;
 
-  if (userLogged) {
-    this.navigationService.goBack();
-  }
- */
   ngOnInit() {
     this.createFormControls();
     this.createForm();
   }
-
-  /* ngOnChanges() {
-    if (this.userService.isLogged()) {
-      this.navigationService.goBack();
-    }
-  } */
 
   createFormControls() {
     this.userName = new FormControl();
@@ -57,13 +46,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.LogIn(this.userForm.value);
     this.userForm.reset();
-/*     console.log('this.UserForm.value', this.userForm.value);
-    this._http
-      .post('https://iteahubback.azurewebsites.net/api/Account/LogIn', this.userForm.value)
-      .subscribe(x => {
-        console.log('result', x);
-      },
-      error => console.error('error bad'));
- */  }
+  }
 
 }

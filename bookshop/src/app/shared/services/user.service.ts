@@ -39,11 +39,12 @@ export class UserService {
           }
           console.log('this.user: ', this.user);
           if (this.user.Role === 'manager') {
-            this.navigationService.goHome();
+            this.navigationService.goManager();
+          } else {
+            this.navigationService.goBack();
           }
-          this.navigationService.goBack();
         } else {
-          alert('user do not exist');
+          alert('bad username or/and password');
         }
       },
       error => console.error('error bad'));
@@ -66,14 +67,14 @@ export class UserService {
 
   LogOut() {
     if (this.user.Role === 'manager') {
-      this.navigationService.goManager('manager');
+      this.navigationService.goHome();
     }
     this.user = new User;
     console.log('this.user: ', this.user);
   }
 
   isLogged() {
-    console.log('isLogged started');
+    // console.log('isLogged started');
     if (this.user.Id) {
       return true;
     } else {
@@ -81,7 +82,7 @@ export class UserService {
     }
   }
   isManager() {
-    console.log('isManager started');
+    // console.log('isManager started');
     if (this.user.Role === 'manager') {
       return true;
     } else {

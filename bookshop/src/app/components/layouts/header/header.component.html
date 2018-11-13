@@ -24,7 +24,7 @@
             <a class="nav-link" routerLink='ebooks'>eBooks</a>
             <a class="nav-link" routerLink='audio'>Audio Books</a>
             <a class="nav-link" routerLink='bookpage'>bookpage</a>
-            <a class="nav-link" routerLink='add-book'>add-book</a>
+            <a *ngIf="userService.isManager()" class="nav-link" routerLink='add-book'>add-book</a>
           </div>          
           <div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic example">           
               <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><fa name="heart"></fa></a>
