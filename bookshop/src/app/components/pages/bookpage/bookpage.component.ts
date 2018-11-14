@@ -31,9 +31,6 @@ export class BookpageComponent implements OnInit {
       });
 
   }
-  navi() {
-    this.router.navigate(['./book/:id/purchase']);
-  }
 
   ngOnInit() {
   }
