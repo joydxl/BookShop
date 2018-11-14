@@ -8,6 +8,7 @@ import { BookpageComponent } from './components/pages/bookpage/bookpage.componen
 import { RoutingGuard } from './shared/routing.guard';
 import { ManagerRoutingGuard } from './shared/manager-routing.guard';
 import { AddBookComponent } from './components/pages/add-book/add-book.component';
+import { QuickPurchaseComponent } from './components/pages/quick-purchase/quick-purchase.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path: '#', component: EmptyPageComponent},
   {path: 'sing-up', component: SingUpComponent},
   {path: 'bookpage', component: BookpageComponent},
-  {path: 'bookpage/:id', component: BookpageComponent},
+  {path: 'book', component: BookpageComponent},
+  {path: 'book/:id', component: BookpageComponent},
+  {path: 'book/:id/purchase', component: QuickPurchaseComponent},
   {path: '**', component: EmptyPageComponent},
 ];
 

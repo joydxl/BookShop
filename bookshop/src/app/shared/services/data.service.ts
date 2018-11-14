@@ -2,21 +2,24 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/shop-models';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
   public Books: Array<Book> = [];
-  private  returnedBooks = [];
+  public activeBook = new Book;
+  private returnedBooks = [];
+
   /* public returnedBooks = [
     {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
     {'Id': 2, 'Authors': ['a2'], 'URL': '//x-studio.com.ua/images/book.jpg'},
     {'Id': 3, 'Title': 't3', 'Authors': ['a3']}
   ]; */
 
-  constructor( private _http: HttpClient ) { }
+  constructor( private _http: HttpClient ) {
+    this.getBooks();
+  }
 
     getBooks() {
 
@@ -92,48 +95,75 @@ export class DataService {
           }
         }
       }
-
-      //  bookData.Id = id;
-      // let ID: string = id.toString();
-      // console.log(bookData.Id);
-      /*switch (ID) {
-        case '1': {
-          // console.log('bookData.Id', bookData.Id);
-          bookData.Id = 1;
-          bookData.Title = 'Some very interesting book about Angular6. Chapter1';
-          // console.log('bookData.Title', bookData.Title);
-          bookData.Authors = ['Screw Driver', 'Unscrew Driver2'];
-          bookData.AboutAuthors = ['Text about author goes here. TypeOf Array of strings'];
-          bookData.URL = '//x-studio.com.ua/images/book.jpg';
-          bookData.Price = 9.99;
-          bookData.Shipping = 1.99;
-          bookData.Quantity = 102;
-          bookData.Annotation = 'Text of Book Annotation goes here. TypeOf string';
-          bookData.Reviews = [{'Id': 1, 'UserId': 1, 'Text': 'Text of Review # 1 goes here. TypeOf string.', 'Rating': 5},
-                      {'Id': 2, 'UserId': 2, 'Text': 'Text of Review # 2 goes here. TypeOf string.', 'Rating': 2}];
-          bookData.BarCode = 'string';
-          bookData.Type = 1;
-          bookData.Category = ['Array<string>'];
-          bookData.Genre = ['Array<string>'];
-          // return true;
-
-          break;
-        }
-
-        default: {
-          // console.log('default of swich');
-          // console.log('bookData.Id', bookData.Id);
-          // return false;
-          break;
-        }
-      }
-      // console.log('bookData.Id', bookData.Id);
-      // console.log('bookData.Title', bookData.Title);*/
-      return bookData;
+      return this.activeBook = bookData;
     }
 
     addBook(form) {
-      return true;
+      this._http
+      .post('https://iteahubback.azurewebsites.net/api/BookShop/CreateNewBook', form)
+      .subscribe(x => {
+        console.log('result', x);
+        const newBook = new Book;
+        // for DEVELOPMENT purposes without backend
+        if (form) {
+          for (const key in form) {
+            if (form.hasOwnProperty(key) && form[key]) {
+              switch (key) {
+                case 'id':
+                  newBook.Id = form[key];
+                  break;
+                case 'title':
+                  newBook.Title = form[key];
+                  break;
+                case 'about':
+                  newBook.Annotation = form[key];
+                  break;
+                case 'urlImg':
+                  newBook.URL = form[key];
+                  break;
+                case 'price':
+                  newBook.Price = form[key];
+                  break;
+                case 'author':
+                  newBook.Authors = form[key];
+                  break;
+
+                default:
+                  break;
+              }
+            }
+          }
+          if (!newBook.Id) {
+            newBook.Id = this.lastBookId() + 1;
+          }
+          // end
+
+          this.Books.push(newBook);
+          console.log('new this.Books ', this.Books);
+          return true;
+        }
+      },
+      error => console.error('error bad'));
+      return false;
+    }
+
+
+    lastBookId() {
+      if (this.Books.length > 0) {
+        const ids: Array<Book['Id']> = [];
+        for (const key in this.Books) {
+          if (this.Books.hasOwnProperty(key)) {
+            ids.push(this.Books[key].Id);
+          }
+        }
+        console.log('ids ', ids);
+        let i: number = ids.reduce(function(a, b) {
+          return Math.max(a, b);
+        });
+        return i;
+      } else {
+        return 0;
+      }
     }
 
 }

@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { UserService } from './shared/services/user.service';
+import { DataService } from './shared/services/data.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AppComponent {
   public footerHeight = '100px';
   public headerHeight = '125px';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private dataService: DataService) {
   }
 
   @HostListener('window:beforeunload', ['$event'])

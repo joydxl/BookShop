@@ -19,7 +19,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.books = this.dataService.getBooks();
+    // this.books = this.dataService.getBooks();
+    this.books = this.dataService.Books;
 
   }
 

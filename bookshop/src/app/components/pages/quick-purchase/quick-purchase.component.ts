@@ -4,21 +4,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
-  selector: 'app-bookpage',
-  templateUrl: './bookpage.component.html',
-  styleUrls: ['./bookpage.component.css']
+  selector: 'app-quick-purchase',
+  templateUrl: './quick-purchase.component.html',
+  styleUrls: ['./quick-purchase.component.css']
 })
-export class BookpageComponent implements OnInit {
+export class QuickPurchaseComponent implements OnInit {
 
-  private book = new Book;
+  private book: Book;
   private id: number;
 
-
-  constructor(/* private */ activatedRoute: ActivatedRoute, /* private  */ dataService: DataService, public router: Router) {
+  constructor(/* private */ activatedRoute: ActivatedRoute, /* private  */ dataService: DataService, router: Router) {
 
     // console.log('activateRoute.snapshot.params ID ', activatedRoute.snapshot.params['id']);
 
       this.id = +activatedRoute.snapshot.params['id'];
+      console.log('this.id from quick-purchase ', this.id);
       activatedRoute.params.subscribe(id => {
         // console.log('id BookpageComponent', id);
         if (!dataService.bookExist(this.id)) {
@@ -26,13 +26,11 @@ export class BookpageComponent implements OnInit {
         }
         if (this.id) {
           console.log('befor getBookData this.id ', this.id, typeof this.id);
-          this.book = dataService.getBookData(this.id);
+          // dataService.getBookData(this.id);
+          this.book = dataService.activeBook;
         }
       });
 
-  }
-  navi() {
-    this.router.navigate(['./book/:id/purchase']);
   }
 
   ngOnInit() {

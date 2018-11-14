@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgIf } from '@angular/common';
 import { AddBookComponent } from './components/pages/add-book/add-book.component';
+import { QuickPurchaseComponent } from './components/pages/quick-purchase/quick-purchase.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AddBookComponent } from './components/pages/add-book/add-book.component
     SearchComponent,
     SingUpComponent,
     BookpageComponent,
-    AddBookComponent
+    AddBookComponent,
+    QuickPurchaseComponent
   ],
   imports: [
     BrowserModule,

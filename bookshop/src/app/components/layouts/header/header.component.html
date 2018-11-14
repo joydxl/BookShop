@@ -10,7 +10,7 @@
             <h1>Some BookShop text</h1>
           </div>
           <div class="col-auto">            
-            <app-search class="input-group"></app-search>
+            <!-- <app-search class="input-group"></app-search> -->
           </div>
           <div class="col-auto">            
             <a *ngIf="!userService.user.Id; else logout" routerLink='login' class="btn btn-primary">Log In</a>
@@ -26,10 +26,10 @@
             <a class="nav-link" routerLink='bookpage'>bookpage</a>
             <a *ngIf="userService.isManager()" class="nav-link" routerLink='add-book'>add-book</a>
           </div>          
-          <div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic example">           
+          <!-- <div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic example">           
               <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><fa name="heart"></fa></a>
               <a class="nav-link" routerLink='#' [ngStyle]="{'fontSize': '20px', 'padding': '8px'}"><fa name="shopping-cart"></fa></a>
-          </div>        
+          </div>         -->
         </div>    
       </div>
     </div>
