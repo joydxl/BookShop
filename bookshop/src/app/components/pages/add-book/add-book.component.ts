@@ -15,7 +15,7 @@ export class AddBookComponent implements OnInit {
   about: FormControl;
   urlImg: FormControl;
   price: FormControl;
-  //author: FormControl;
+  author: FormControl;
 
 
   constructor(private dataService: DataService) { }
@@ -30,7 +30,7 @@ export class AddBookComponent implements OnInit {
     this.about = new FormControl();
     this.urlImg = new FormControl();
     this.price = new FormControl();
-    //this.author = new FormControl();
+    this.author = new FormControl();
   }
 
   createForm() {
@@ -39,7 +39,7 @@ export class AddBookComponent implements OnInit {
       about: this.about,
       urlImg: this.urlImg,
       price: this.price,
-      //author: this.author
+      author: this.author
     });
   }
 

@@ -16,7 +16,8 @@
           </div>
           <div class="row">
             <div class="col-5">
-              <h6 *ngFor="let item of book.Authors; let i=index">by {{book.Authors[i]}}</h6>
+              <!-- <h6 *ngFor="let item of book.Authors; let i=index">by {{book.Authors[i]}}</h6> -->
+              <h6>by {{book.Authors}}</h6>
               <p>Price: {{book.Price | currency:'USD'}}</p>
               <P>Shipping: {{book.Shipping | currency:'USD'}}</P>
               <p><b>Total price: {{(book.Price + book.Shipping) | currency:'USD'}}</b></p>               

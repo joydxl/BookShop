@@ -61,7 +61,7 @@ export class OrderItem {
 export class FilteredBooks {
     public Id: Book['Id'] = null;
     public Title: Book['Title'] = 'Book Title';
-    public Authors: Book['Authors'] = ['Author'];
+    // public Authors: Book['Authors'] = ['Author'];
     public URL: Book['URL'] = '//x-studio.com.ua/images/book.jpg';
 }
 
@@ -69,7 +69,8 @@ export class Book {
 
     public Id: number = null;
     public Title: string = 'Book Title';
-    public Authors: Array<Author['FullName']> = ['Author'];
+    public Authors: string = 'Author';
+    // public Authors: Array<Author['FullName']> = ['Author'];
     public AboutAuthors: Array<Author['About']> = [];
     public URL: string = '//x-studio.com.ua/images/book.jpg';
     public Price: number = null;

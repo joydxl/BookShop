@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserService } from './shared/services/user.service';
 import { DataService } from './shared/services/data.service';
 
@@ -8,12 +8,16 @@ import { DataService } from './shared/services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'bookshop';
   public footerHeight = '100px';
   public headerHeight = '125px';
 
   constructor(private userService: UserService, private dataService: DataService) {
+  }
+
+  ngOnInit() {
+    // this.dataService.getBooks();
   }
 
   @HostListener('window:beforeunload', ['$event'])

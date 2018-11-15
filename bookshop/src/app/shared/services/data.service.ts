@@ -9,7 +9,7 @@ export class DataService {
 
   public Books: Array<Book> = [];
   public activeBook = new Book;
-  private returnedBooks = [];
+  //private returnedBooks = [];
 
   /* public returnedBooks = [
     {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
@@ -23,23 +23,49 @@ export class DataService {
 
     getBooks() {
 
-      if (this.Books.length === 0) {
+      if (this.Books) {
         console.log('getBooks() STARTED');
         this._http
           .get('https://iteahubback.azurewebsites.net/api/BookShop/GetAllBooks')
           .subscribe(x => {
-            // this.returnedBooks = x;
-            this.returnedBooks = [
+            console.log('returned by post ', x);
+            let returnedBooks = x;
+            /* this.returnedBooks = [
               {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
               {'Id': 2, 'Authors': ['a2'], 'URL': '//x-studio.com.ua/images/book.jpg'},
               {'Id': 3, 'Title': 't3', 'Authors': ['a3']}
-            ];
-            for (const key in this.returnedBooks) {
-              if (this.returnedBooks.hasOwnProperty(key)) {
+            ]; */
+            for (const key in returnedBooks) {
+              if (returnedBooks.hasOwnProperty(key)) {
                 this.Books[key] = new Book;
-                for (const ikey in this.returnedBooks[key]) {
-                  if (this.returnedBooks[key].hasOwnProperty(ikey)) {
-                    this.Books[key][ikey] = this.returnedBooks[key][ikey];
+                for (const ikey in returnedBooks[key]) {
+                  if (returnedBooks[key].hasOwnProperty(ikey)) {
+
+                    switch (ikey) {
+                      case 'id':
+                        this.Books[key].Id = returnedBooks[key][ikey];
+                        break;
+                      case 'title':
+                        this.Books[key].Title = returnedBooks[key][ikey];
+                        break;
+                      case 'about':
+                        this.Books[key].Annotation = returnedBooks[key][ikey];
+                        break;
+                      case 'urlImg':
+                        this.Books[key].URL = returnedBooks[key][ikey];
+                        break;
+                      case 'price':
+                        this.Books[key].Price = returnedBooks[key][ikey];
+                        break;
+                      case 'author':
+                        this.Books[key].Authors = returnedBooks[key][ikey];
+                        break;
+
+                      default:
+                        break;
+                    }
+
+                    // this.Books[key][ikey] = returnedBooks[key][ikey];
                   }
                 }
               }
@@ -47,6 +73,25 @@ export class DataService {
           },
           error => console.error('error bad'));
       }
+
+      /* // for DEVELOPMENT purposes without backend
+      this.returnedBooks = [
+        {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
+        {'Id': 2, 'Authors': ['a2'], 'URL': '//x-studio.com.ua/images/book.jpg'},
+        {'Id': 3, 'Title': 't3', 'Authors': ['a3']}
+      ];
+      for (const key in this.returnedBooks) {
+        if (this.returnedBooks.hasOwnProperty(key)) {
+          this.Books[key] = new Book;
+          for (const ikey in this.returnedBooks[key]) {
+            if (this.returnedBooks[key].hasOwnProperty(ikey)) {
+              this.Books[key][ikey] = this.returnedBooks[key][ikey];
+            }
+          }
+        }
+      }
+      // end */
+
 
       return this.Books;
       // get filtered array of books and return it
@@ -67,7 +112,7 @@ export class DataService {
     }
     bookExist(id) {
       if (id) {
-        this.getBooks();
+        // this.getBooks();
         for (const book in this.Books) {
           if (this.Books.hasOwnProperty(book)) {
             const element = this.Books[book];
@@ -103,9 +148,11 @@ export class DataService {
       .post('https://iteahubback.azurewebsites.net/api/BookShop/CreateNewBook', form)
       .subscribe(x => {
         console.log('result', x);
-        const newBook = new Book;
+        this.getBooks();
         // for DEVELOPMENT purposes without backend
-        if (form) {
+        const newBook = new Book;
+
+        /* if (form) {
           for (const key in form) {
             if (form.hasOwnProperty(key) && form[key]) {
               switch (key) {
@@ -141,7 +188,7 @@ export class DataService {
           this.Books.push(newBook);
           console.log('new this.Books ', this.Books);
           return true;
-        }
+        } */
       },
       error => console.error('error bad'));
       return false;
