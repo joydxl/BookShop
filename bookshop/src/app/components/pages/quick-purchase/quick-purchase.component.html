@@ -1,4 +1,50 @@
-<p>
-  quick-purchase works! {{id}}
-</p>
-<h1>BOOK {{book.Id}}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-2 border border-dark sidenav">
+      <app-filter-bar></app-filter-bar>
+    </aside>
+    <section class="col-10 ">
+      <div class="row">
+        <div class="col-3 border border-dark d-flex justify-content-center">
+          <img src="{{book.URL}}" alt="Book Image" height="200px">
+        </div>
+        <div class="col-9 container">
+          <div class="row">       
+            <div class="col-12">
+              <h3>{{book.Title}}</h3>            
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <h6>by {{book.Authors}}</h6>
+              <p>Price: {{book.Price | currency:'USD'}}</p>
+              <P>Shipping: {{book.Shipping | currency:'USD'}}</P>
+              <p><b>Total price: {{(book.Price + book.Shipping) | currency:'USD'}}</b></p>               
+            </div>
+            <div class="col-7 container">
+              
+              <div class="row">
+                <div class="col-5">
+                  <p>Rating: <ngb-rating [(rate)]="book.Rating" [readonly]="true" max="5"></ngb-rating> ({{book.Reviews.length}})</p>                
+                </div>
+                <div class="col-2">
+                    <p>ID: {{book.Id}}</p>
+                </div>
+                
+                <div class="col">
+                  <a (click)="this.onSubmit();"><button>Place Order</button></a><br>
+                </div>
+
+              </div>
+              
+              <div class="row">
+                <div class="col" appBold>Name to ship Order: {{this.userService.user.UserName}}</div>
+              </div>
+            </div>           
+          </div>          
+        </div>
+      </div>
+      <hr>
+    </section>
+  </div>
+</div>

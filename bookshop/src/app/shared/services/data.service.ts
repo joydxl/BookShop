@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/shop-models';
 import { HttpClient } from '@angular/common/http';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class DataService {
 
   public Books: Array<Book> = [];
   public activeBook = new Book;
-  //private returnedBooks = [];
+
 
   /* public returnedBooks = [
     {'Id': 1, 'Title': 't1', 'URL': '//x-studio.com.ua/images/book.jpg'},
@@ -17,7 +18,7 @@ export class DataService {
     {'Id': 3, 'Title': 't3', 'Authors': ['a3']}
   ]; */
 
-  constructor( private _http: HttpClient ) {
+  constructor( private _http: HttpClient, private navigationService: NavigationService ) {
     this.getBooks();
   }
 
@@ -192,6 +193,18 @@ export class DataService {
       },
       error => console.error('error bad'));
       return false;
+    }
+
+    newOrder(form) {
+      console.log(form);
+      this._http
+      .post('https://iteahubback.azurewebsites.net/api/BookShop/NewOrder', form)
+      .subscribe(x => {
+        console.log('x: ', x);
+        alert('Order Placed');
+        this.navigationService.goHome();
+      },
+      error => console.error('error bad'));
     }
 
 

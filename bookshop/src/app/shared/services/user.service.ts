@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/shop-models';
 import { NavigationService } from './navigation.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
 
   public user = new User;
 
-  constructor(private _http: HttpClient, private navigationService: NavigationService) { }
+  constructor(private _http: HttpClient, private navigationService: NavigationService, private activatedRoute: ActivatedRoute) { }
 
   LogIn(form) {
     console.log('this.UserForm.value', form);
@@ -27,6 +28,9 @@ export class UserService {
                   break;
                 case 'loginName':
                   this.user.UserName = x[key];
+                  break;
+                  case 'password':
+                  this.user.Password = x[key];
                   break;
                 case 'roles':
                   this.user.Role = x[key];
@@ -69,8 +73,11 @@ export class UserService {
     if (this.user.Role === 'manager') {
       this.navigationService.goHome();
     }
+    console.log(this.activatedRoute.snapshot['_routerState'].url);
+    if (this.activatedRoute.snapshot['_routerState'].url) {
+
+    }
     this.user = new User;
-    console.log('this.user: ', this.user);
   }
 
   isLogged() {

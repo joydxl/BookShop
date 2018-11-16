@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { AddBookComponent } from './components/pages/add-book/add-book.component';
 import { QuickPurchaseComponent } from './components/pages/quick-purchase/quick-purchase.component';
+import { BoldDirective } from './shared/directives/bold.directive';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { QuickPurchaseComponent } from './components/pages/quick-purchase/quick-
     SingUpComponent,
     BookpageComponent,
     AddBookComponent,
-    QuickPurchaseComponent
+    QuickPurchaseComponent,
+    BoldDirective
   ],
   imports: [
     BrowserModule,
